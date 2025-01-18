@@ -1,3 +1,14 @@
+/* portfolio/src/App.css */
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9; /* Light background for better contrast */
+}
+
 .welcome-msg {
   flex: 1;
   height: 100vh;
@@ -5,7 +16,10 @@
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
+  text-align: center; /* Center text for better presentation */
 }
+
+/* Message Content */
 .msg-content {
   display: flex;
   flex-direction: row;
@@ -15,24 +29,25 @@
   flex-shrink: 2;
 }
 
+/* Text Message */
 .text-msg {
-  font-size: 150%;
-  margin-right: 5%;
-  margin-left: 5%;
+  font-size: 1.5rem; /* Use rem for scalability */
+  margin: 0 5%; /* Consistent horizontal margins */
   z-index: 1;
 }
 
+/* Signature */
 .signature {
   width: 45%;
-  margin-right: 5%;
-  margin-left: 5%;
+  margin: 0 5%;
   z-index: -1;
 }
 
+/* External Links */
 .ext-links {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
   margin: 2%;
   margin-bottom: 10%;
   margin-top: 5%;
@@ -40,16 +55,17 @@
 
 .ext-links a {
   margin: 0.5%;
-  font-size: larger;
+  font-size: 1.2rem; /* Adjusted for better readability */
   color: black;
   text-decoration: none;
-  transition: ease 3ms;
+  transition: transform 0.2s ease; /* Smooth transition */
 }
 
 .ext-links a:hover {
   transform: translateY(-2px);
 }
 
+/* Header */
 .header {
   display: flex;
   flex-direction: row;
@@ -59,10 +75,11 @@
   padding: 20px 5%;
   position: relative;
   top: 0;
-  background: rgba(255, 255, 255, 0.95);
+  background: #f9f9f9;
   z-index: 1000;
 }
 
+/* Logo */
 .logo {
   font-size: 1.5rem;
   font-weight: lighter;
@@ -70,6 +87,7 @@
   padding: 0.5rem;
 }
 
+/* Navigation */
 .nav {
   display: flex;
   gap: 2rem;
@@ -82,9 +100,10 @@
   text-decoration: none;
   color: black;
   font-size: clamp(1rem, 2vw, 1.5rem);
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform for hover */
   border-radius: 4px;
 }
+
 .nav-item:hover {
   background-color: white;
   text-decoration: underline;
@@ -96,41 +115,51 @@
   font-weight: bold;
 }
 
+/* Media Queries for Responsive Design */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
     padding: 1rem;
   }
+
   .nav {
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
     padding: 0.5rem;
   }
+
   .nav-item {
     padding: 0.5rem;
   }
-}
-.content-section{
-  width:100vh;
-  margin-left:5%;
-  margin-top: 7.5%;
-  justify-content: space-evenly;
-  min-height: 100vh;
-  padding: 5% 10%;
-  scroll-margin-top: 70px; 
-}
-.main{
-  display: flex;
-  flex-direction: column;
-}
-html {
-  scroll-behavior: smooth;
-  overflow-y: scroll;
+
+  .llm-response {
+    margin-bottom: 20px; /* Space below the llm-response */
+    max-height: 300px; /* Set a maximum height */
+    overflow-y: auto; /* Allow scrolling if content exceeds max height */
+  }
+
+  .contact-form {
+    margin-top: 20px; /* Space above the contact form */
+    width: 100%; /* Full width */
+  }
 }
 
+@media (max-width: 480px) {
+  .text-msg {
+    font-size: 1.2rem; /* Smaller font size for mobile */
+  }
 
+  .ext-links a {
+    font-size: 1rem; /* Smaller font size for links */
+  }
+}
+
+/* Additional Styles for Content Sections */
 .content-section {
+  width: 100%; /* Full width */
+  margin: 5% auto; /* Centered with margin */
+  justify-content: space-evenly;
   min-height: 100vh;
   padding: 5% 10%;
   scroll-margin-top: 70px; 
@@ -141,12 +170,14 @@ html {
   margin-bottom: 2rem;
 }
 
+/* Projects Grid */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
+/* Project Card */
 .project-card {
   background: #f5f5f5;
   padding: 1.5rem;
@@ -163,30 +194,32 @@ html {
   margin-bottom: 1rem;
 }
 
-/* Smooth scrolling for the whole page */
-html {
-  scroll-behavior: smooth;
-  overflow-y: scroll;
-}
-
+/* About Content */
 .about-content {
   max-width: 800px;
   line-height: 1.6;
+  margin: 20px auto; /* Centered */
+  padding: 20px; /* Padding inside */
+  background-color: #fff; /* White background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
+/* Skills Section */
 .skills {
-  margin-top: 2rem;
+  margin-top: 0; /* Remove top margin to eliminate space */
 }
 
 .skills ul {
   list-style: none;
 }
 
-.skills li{
+.skills li {
   margin-right: 0.5rem;
   transition: color 0.3s ease;
 }
 
+/* Tech Stack */
 .tech-stack {
   margin-top: 1rem;
   display: flex;
@@ -201,144 +234,7 @@ html {
   font-size: 0.9rem;
 }
 
-.llm-interface {
-  margin-top: 2rem;
-  height: 100vh;
-  width: 100vh;
-  margin: 3rem;
-}
-
-.llm-button{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.llm-interface textarea {
-  width: 100%;
-  height: 150px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-.llm-top-questions{
-  text-decoration: none;
-}
-.llm-interface .llm-button {
-  padding: 0.8rem 2rem;
-  background: #333;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-  flex: 1;
-}
-
-.llm-interface button:hover {
-  background: #444;
-}
-
-.llm-button{
-  padding: 0 5px 0 5px;
-}
-
-
-.contact-content {
-  max-width: 800px;
-}
-
-.contact-info {
-  margin-top: 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 5rem;
-}
-
-.contact-item h3 {
-  margin-bottom: 0.5rem;
-}
-
-.social-links {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.social-link {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  color: #333;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-/* Icon styles */
-.social-link i {
-  font-size: 1.5rem;
-}
-
-/* Hover effects */
-.social-link:hover {
-  transform: translateY(-3px);
-  color: #fff;
-}
-
-/* Individual social media colors on hover */
-.social-link:hover i.fa-github {
-  color: #333;
-}
-
-.social-link:hover i.fa-linkedin {
-  color: #0077b5;
-}
-
-.social-link:hover i.fa-twitter {
-  color: #1da1f2;
-}
-
-.social-link:hover i.fa-envelope .contact-info:hover i.fa-envelope{
-  color: #ea4335;
-}
-
-/* Optional: Add background color on hover */
-.social-link:hover {
-  background-color: #f5f5f5;
-}
-
-/* Make it responsive */
-@media (max-width: 768px) {
-  .social-links {
-      flex-wrap: wrap;
-      justify-content: center;
-  }
-  
-  .social-link {
-      min-width: 120px;
-      justify-content: center;
-  }
-}
-
-.study li i.fa-check-circle {
-  color: #28a745;
-}
-.study li{
-  list-style: none;
-  font-size: medium;
-}
-.study li i {
-  margin-right: 0.5rem;
-  transition: color 0.3s ease;
-}
-.send-a-msg {
-  width: 100%;
-  max-width: 500px;
-}
-
+/* Contact Form */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -363,13 +259,13 @@ html {
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: black;
+  border-color: #007bff; /* Highlight border on focus */
 }
 
 .contact-form button {
   padding: 0.8rem 2rem;
-  background: white;
-  color: black;
+  background: black;
+  color: white;
   border: none;
   border-radius: 4px;
   font-size: 1rem;
@@ -381,52 +277,123 @@ html {
 }
 
 .contact-form button:hover {
-  background: black;
-  color: white;
+  background: white;
+  color: black;
 }
 
-.contact-form button i {
-  font-size: 1.1rem;
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 
-@media (max-width: 768px) {
-  .contact-form {
-      gap: 0.8rem;
-  }
-  
-  .contact-form input,
-  .contact-form textarea {
-      padding: 0.6rem;
-  }
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
-.nav-item.active {
-  color: #007bff;
-  font-weight: bold;
+.social-link:hover {
+  transform: translateY(-3px);
+  background-color: #f5f5f5; /* Background on hover */
 }
 
+/* Icon styles */
+.social-link i {
+  font-size: 1.5rem;
+}
+
+/* Individual social media colors on hover */
+.social-link:hover i.fa-github {
+  color: #333;
+}
+
+.social-link:hover i.fa-linkedin {
+  color: #0077b5;
+}
+
+.social-link:hover i.fa-twitter {
+  color: #1da1f2;
+}
+
+.social-link:hover i.fa-envelope {
+  color: #ea4335;
+}
+
+/* Study Section */
+.study li i.fa-check-circle {
+  color: #28a745;
+}
+
+.study li {
+  list-style: none;
+  font-size: medium;
+}
+
+.study li i {
+  margin-right: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+/* Resume Downloading */
 .resume.downloading {
   opacity: 0.7;
   pointer-events: none;
 }
 
-.certify-li{
-  list-style: none;
-}
-
+/* Section Padding */
 .section {
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
-.llm-buttons{
+/* LLM Interface */
+.llm-interface {
+  margin-top: 2rem;
+  height: auto; /* Allow height to adjust */
+  width: 100%; /* Full width */
+  margin: 3rem 0; /* Vertical margins */
+}
+
+.llm-buttons {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  gap: 10px;
+  gap: 1rem;
+}
+.llm-button{
+  justify-content: center;
+}
+.llm-interface textarea {
+  width: 100%;
+  height: 150px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
 }
 
-/* Question.css */
+.llm-interface .llm-button {
+  padding: 0.8rem 2rem;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  flex: 1;
+}
 
+.llm-interface button:hover {
+  background: #444;
+}
+
+/* Questions Section */
 .Questions {
   max-width: 800px; /* Limit the maximum width of the questions section */
   margin: 20px auto; /* Center the section with automatic left and right margins */
@@ -518,5 +485,69 @@ html {
   .projects-grid {
     grid-template-columns: 1fr; /* Stack project cards vertically on small screens */
   }
+}
+
+/* Certifications Section */
+.certifications ul {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+/* LLM Button */
+.llm-button {
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  text-decoration: none; /* Remove text decoration */
+  padding: 10px; /* Add padding for better appearance */
+  border: none; /* Remove border if needed */
+  background-color: #007bff; /* Example background color */
+  color: white; /* Text color */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background 0.3s ease; /* Smooth background transition */
+}
+
+.coding-profiles {
+    margin: 20px 0;
+}
+
+.coding-profiles h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.coding-profiles ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+}
+
+.coding-profiles li {
+    margin: 5px; /* Space between items */
+    flex: 1; /* Allow items to grow */
+    text-align: center; /* Center text */
+}
+
+.coding-profiles a {
+    text-decoration: none; /* Remove underline */
+    color: #007bff; /* Link color */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.coding-profiles a:hover {
+    color: #0056b3; /* Darker shade on hover */
+}
+
+.profile-icon {
+    width: 24px; /* Set a fixed width for icons */
+    height: 24px; /* Set a fixed height for icons */
+    margin-right: 8px; /* Space between icon and text */
 }
 

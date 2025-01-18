@@ -5,6 +5,7 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import LLMPage from './components/LLM';
+import Footer from './components/CodingProfiles';
 import './App.css';
 
 function Home() {
@@ -17,6 +18,7 @@ function Home() {
                 <Projects />
                 <LLMPage />
                 <Contact />
+                <Footer/>
             </main>
         </div>
     );
