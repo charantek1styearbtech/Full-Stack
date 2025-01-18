@@ -1,0 +1,522 @@
+.welcome-msg {
+  flex: 1;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+.msg-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-shrink: 2;
+}
+
+.text-msg {
+  font-size: 150%;
+  margin-right: 5%;
+  margin-left: 5%;
+  z-index: 1;
+}
+
+.signature {
+  width: 45%;
+  margin-right: 5%;
+  margin-left: 5%;
+  z-index: -1;
+}
+
+.ext-links {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin: 2%;
+  margin-bottom: 10%;
+  margin-top: 5%;
+}
+
+.ext-links a {
+  margin: 0.5%;
+  font-size: larger;
+  color: black;
+  text-decoration: none;
+  transition: ease 3ms;
+}
+
+.ext-links a:hover {
+  transform: translateY(-2px);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  position: relative;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: lighter;
+  font-family: cursive;
+  padding: 0.5rem;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-item {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: black;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+.nav-item:hover {
+  background-color: white;
+  text-decoration: underline;
+  transform: translateY(-2px);
+}
+
+.nav-item.active {
+  color: #007bff;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+  .nav-item {
+    padding: 0.5rem;
+  }
+}
+.content-section{
+  width:100vh;
+  margin-left:5%;
+  margin-top: 7.5%;
+  justify-content: space-evenly;
+  min-height: 100vh;
+  padding: 5% 10%;
+  scroll-margin-top: 70px; 
+}
+.main{
+  display: flex;
+  flex-direction: column;
+}
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+
+.content-section {
+  min-height: 100vh;
+  padding: 5% 10%;
+  scroll-margin-top: 70px; 
+}
+
+.content-section h2 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: 2rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: #f5f5f5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card h3 {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  margin-bottom: 1rem;
+}
+
+/* Smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+.about-content {
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+.skills {
+  margin-top: 2rem;
+}
+
+.skills ul {
+  list-style: none;
+}
+
+.skills li{
+  margin-right: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.tech-stack {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tech-stack span {
+  background: #e0e0e0;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+}
+
+.llm-interface {
+  margin-top: 2rem;
+  height: 100vh;
+  width: 100vh;
+  margin: 3rem;
+}
+
+.llm-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.llm-interface textarea {
+  width: 100%;
+  height: 150px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+.llm-top-questions{
+  text-decoration: none;
+}
+.llm-interface .llm-button {
+  padding: 0.8rem 2rem;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  flex: 1;
+}
+
+.llm-interface button:hover {
+  background: #444;
+}
+
+.llm-button{
+  padding: 0 5px 0 5px;
+}
+
+
+.contact-content {
+  max-width: 800px;
+}
+
+.contact-info {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 5rem;
+}
+
+.contact-item h3 {
+  margin-bottom: 0.5rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Icon styles */
+.social-link i {
+  font-size: 1.5rem;
+}
+
+/* Hover effects */
+.social-link:hover {
+  transform: translateY(-3px);
+  color: #fff;
+}
+
+/* Individual social media colors on hover */
+.social-link:hover i.fa-github {
+  color: #333;
+}
+
+.social-link:hover i.fa-linkedin {
+  color: #0077b5;
+}
+
+.social-link:hover i.fa-twitter {
+  color: #1da1f2;
+}
+
+.social-link:hover i.fa-envelope .contact-info:hover i.fa-envelope{
+  color: #ea4335;
+}
+
+/* Optional: Add background color on hover */
+.social-link:hover {
+  background-color: #f5f5f5;
+}
+
+/* Make it responsive */
+@media (max-width: 768px) {
+  .social-links {
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+  
+  .social-link {
+      min-width: 120px;
+      justify-content: center;
+  }
+}
+
+.study li i.fa-check-circle {
+  color: #28a745;
+}
+.study li{
+  list-style: none;
+  font-size: medium;
+}
+.study li i {
+  margin-right: 0.5rem;
+  transition: color 0.3s ease;
+}
+.send-a-msg {
+  width: 100%;
+  max-width: 500px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: black;
+}
+
+.contact-form button {
+  padding: 0.8rem 2rem;
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: black;
+  color: white;
+}
+
+.contact-form button i {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .contact-form {
+      gap: 0.8rem;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+      padding: 0.6rem;
+  }
+}
+
+.nav-item.active {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.resume.downloading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.certify-li{
+  list-style: none;
+}
+
+.section {
+    padding-left: 20px;
+}
+
+.llm-buttons{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Question.css */
+
+.Questions {
+  max-width: 800px; /* Limit the maximum width of the questions section */
+  margin: 20px auto; /* Center the section with automatic left and right margins */
+  padding: 20px; /* Add padding inside the container */
+  border: 1px solid #ddd; /* Light gray border around the container */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light background color */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.Questions h2 {
+  text-align: center; /* Center the heading */
+  color: #333; /* Darker color for the heading */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+.Questions ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+}
+
+.Questions li {
+  padding: 15px; /* Space inside each question item */
+  margin: 10px 0; /* Space between each question item */
+  border: 1px solid #ccc; /* Border for each question item */
+  border-radius: 5px; /* Slightly rounded corners for items */
+  background-color: #fff; /* White background for question items */
+  transition: box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+.Questions li:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Shadow on hover for emphasis */
+}
+
+.Questions strong {
+  color: #555; /* Slightly lighter color for labels */
+}
+
+/* About Me Section */
+.about-content {
+  max-width: 800px; /* Limit the maximum width of the about section */
+  margin: 20px auto; /* Center the section */
+  padding: 20px; /* Add padding inside the container */
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.about-content h2 {
+  text-align: center; /* Center the heading */
+  color: #333; /* Darker color for the heading */
+}
+
+.about-content p {
+  line-height: 1.6; /* Improve readability */
+}
+
+/* Projects Section */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid layout */
+  gap: 2rem; /* Space between project cards */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .about-content {
+    padding: 15px; /* Reduce padding on smaller screens */
+  }
+
+  .about-content h2 {
+    font-size: 1.5rem; /* Adjust heading size */
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller columns on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content {
+    padding: 10px; /* Further reduce padding on very small screens */
+  }
+
+  .about-content h2 {
+    font-size: 1.2rem; /* Further adjust heading size */
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr; /* Stack project cards vertically on small screens */
+  }
+}
+
