@@ -9,6 +9,7 @@ const cosineSimilarity = require('compute-cosine-similarity');
 const cron = require('node-cron');
 const app = express();
 
+const port=process.env.REACT_APP_PORT || 5000;
 // Configure CORS to allow requests from your frontend
 const corsOptions = {
     origin: `${process.env.REACT_APP_FRONTEND_URL}`, // Replace with your frontend URL
@@ -103,6 +104,6 @@ app.post('/questions', fetchQuestionsFromDB, (req, res) => {
   res.status(200).json(cachedQuestions);
 });
 
-app.listen(5000, () => {
-  console.log('Server is running on http://localhost:5000');
+app.listen(port, () => {
+  console.log('Server is running');
 });
