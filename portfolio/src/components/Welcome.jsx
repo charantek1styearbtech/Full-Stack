@@ -11,7 +11,7 @@ const Welcome = () => {
             </div>
             </div>
             <div className="ext-links">
-                <a className="resume" href="/files/resume.pdf" download>Resume</a>
+                <a className="resume" href="/files/Resume.pdf" download>Resume</a>
                 <a className="linkedin" href="https://linkedin.com/in/reddycharantej">Linkedin</a>
                 <a className="email" href="mailto:charantej928@gmail.com">Email</a>
             </div>
