@@ -9,7 +9,7 @@ const cosineSimilarity = require('compute-cosine-similarity');
 const cron = require('node-cron');
 const app = express();
 
-const port=process.env.REACT_APP_PORT || 5000;
+const port=process.env.PORT || 5000;
 // Configure CORS to allow requests from your frontend
 const corsOptions = {
     origin: `${process.env.REACT_APP_FRONTEND_URL}`, // Replace with your frontend URL
