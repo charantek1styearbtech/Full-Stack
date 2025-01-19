@@ -206,18 +206,25 @@ body {
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
-
+.about-content li{
+  margin-top: 7.5px;
+}
 /* Skills Section */
 .skills {
   margin-top: 0; /* Remove top margin to eliminate space */
 }
 
 .skills ul {
-  list-style: none;
+  list-style: none; /* Remove default bullets */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column;
+  flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+  justify-content: flex-start; /* Align items to the start */
 }
 
 .skills li {
-  margin-right: 0.5rem;
+  margin-right: 0.5rem; /* Space between items */
   transition: color 0.3s ease;
 }
 
@@ -493,7 +500,29 @@ body {
 .certifications ul {
   list-style-type: none; /* Remove bullets */
   padding: 0; /* Remove default padding */
-  margin-left: 0rem; /* Remove default margin */
+  margin-left: 0; /* Remove default margin */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column;
+  flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+  justify-content: flex-start; /* Align items to the start */
+}
+
+.certifications li {
+  margin-right: 0.5rem; /* Space between items */ /* Space below each certification item */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-between;
+  align-items: center; /* Center items vertically */
+}
+
+/* Adjusting image size and spacing */
+.certification-download {
+  margin-right: 20rem;/* Space between the text and the image */
+}
+
+.certifications img {
+  max-width: 20px; /* Reduced size of the image */
+  height: auto; /* Maintain aspect ratio */
+  background-color: #f9f9f9;
 }
 
 /* LLM Button */
@@ -553,3 +582,33 @@ body {
     margin-right: 8px; /* Space between icon and text */
 }
 
+.popup {
+    position: fixed; /* Change to fixed to center it relative to the viewport */
+    top: 50%; /* Position from the top */
+    left: 50%; /* Position from the left */
+    transform: translate(-50%, -50%); /* Center the popup */
+    z-index: 1000;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.close-button {
+  position: absolute; /* Position the button absolutely within the popup */
+  top: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+  background: transparent; /* Optional: make the button background transparent */
+  border: none; /* Optional: remove border */
+  font-size: 16px; /* Adjust font size as needed */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.popup img {
+    width: 80vw; /* Set width to 80% of the viewport width */
+    height: 80vh; /* Set height to 80% of the viewport height */
+    object-fit: contain; /* Maintain aspect ratio */
+}

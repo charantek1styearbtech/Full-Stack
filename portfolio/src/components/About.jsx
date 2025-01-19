@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const About = () => {
+    const [hoveredImage, setHoveredImage] = useState(null);
+
+    const handleImageClick = (imageSrc) => {
+        setHoveredImage(imageSrc);
+    };
+
+    const closePopup = () => {
+        setHoveredImage(null);
+    };
+
     return (
         <section id="about-section" className="content-section">
             <h2 className='about-txt'>About Me</h2>
@@ -36,13 +46,60 @@ const About = () => {
                 <div className='certifications'>
                 <h3>Certifications</h3>
                 <ul className='certify-li'>
-                    <li>OOPs in C++ -Codechef</li>
-                    <li>Foundational Generative Ai -iNueron</li>
-                    <li>Flutter and Dart -Udemy</li>
-                    <li>Full Stack Development- Mimo org</li>
+                    <li>
+                        OOPs in C++ - Codechef 
+                        <button
+                            className='certification-download'
+                            onClick={() => handleImageClick('sources/oops.jpeg')}
+                        >
+                            <img className='certfication-download-img' src='sources/certificate.png' alt='view'/>
+                        </button>
+                    </li>
+                    <li>
+                        Foundational Generative AI - iNeuron 
+                        <button
+                            className='certification-download'
+                            onClick={() => handleImageClick('sources/genai.png')}
+                        >
+                            <img className='certfication-download-img' src='sources/certificate.png' alt='view'/>
+                        </button>
+                    </li>
+                    <li>
+                        Flutter and Dart - Udemy 
+                        <button
+                            className='certification-download'
+                            onClick={() => handleImageClick('sources/flutter.jpg')}
+                        >
+                            <img className='certfication-download-img' src='sources/certificate.png' alt='view'/>
+                        </button>
+                    </li>
+                    <li>
+                        Full Stack Development - Mimo org 
+                        <button
+                            className='certification-download'
+                            onClick={() => handleImageClick('sources/mern.jpeg')}
+                        >
+                            <img className='certfication-download-img' src='sources/certificate.png' alt='view'/>
+                        </button>
+                        </li>
+                        <li>
+                        AWS - Scaler Academy
+                        <button
+                            className='certification-download'
+                            onClick={() => handleImageClick('sources/AWS.jpeg')}
+                        >
+                            <img className='certfication-download-img' src='sources/certificate.png' alt='view'/>
+                        </button>
+                    </li>
                 </ul>
                 </div>
             </div>
+            {hoveredImage && (
+                <div className="popup">
+                    <button className="close-button" onClick={closePopup}>X</button>
+                    <img src={hoveredImage} alt="Certification" />
+                </div>
+            )}
         </section>
     );
 };
