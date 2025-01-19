@@ -493,7 +493,7 @@ body {
 .certifications ul {
   list-style-type: none; /* Remove bullets */
   padding: 0; /* Remove default padding */
-  margin: 0; /* Remove default margin */
+  margin-left: 0rem; /* Remove default margin */
 }
 
 /* LLM Button */
