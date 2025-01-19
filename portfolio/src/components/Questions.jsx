@@ -31,7 +31,7 @@ function Question() {
                     ))}
                 </ul>
             ) : (
-                <p>No questions found.</p>
+                <p>Loading...</p>
             )}
         </div>
     );

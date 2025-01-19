@@ -523,6 +523,7 @@ body {
   max-width: 20px; /* Reduced size of the image */
   height: auto; /* Maintain aspect ratio */
   background-color: #f9f9f9;
+  margin-left: 0rem; /* Remove default margin */
 }
 
 /* LLM Button */
