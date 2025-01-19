@@ -23,9 +23,9 @@ function LLMPage() {
 
     const handleSubmit = async () => {
         setDisplayedResponse('')
+        setLoading(true);
         console.log("Submitting input to LLM:", inputText);
         const outputText = await run(inputText) || '';
-        setLoading(true);
         if (typeof outputText === 'string' && outputText.trim() !== '') {
             console.log("Sending data:", { inputText, outputText });
             typeEffect(outputText);
@@ -34,7 +34,7 @@ function LLMPage() {
             setDisplayedResponse('');
         }
         try {
-            const res = await axios.post('http://localhost:5000/addtodb', {
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/addtodb`, {
                 inputText,
                 outputText
             }); 

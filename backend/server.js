@@ -9,8 +9,16 @@ const cosineSimilarity = require('compute-cosine-similarity');
 const cron = require('node-cron');
 const app = express();
 
+// Configure CORS to allow requests from your frontend
+const corsOptions = {
+    origin: `${process.env.REACT_APP_FRONTEND_URL}`, // Replace with your frontend URL
+    methods: ['GET', 'POST'], // Specify the methods you want to allow
+    credentials: true,
+};
+
+app.use(cors(corsOptions)); // Use the CORS middleware with the specified options
+
 app.use(morgan('dev'));
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 mongoose

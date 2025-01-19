@@ -6,7 +6,7 @@ function Question() {
 
     const fetchQuestions = async () => {
         try {
-            const res = await axios.post('http://localhost:5000/questions', {});
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/questions`, {});
             setQuestions(res.data); // Set the fetched questions into state
         } catch (error) {
             console.error('Error fetching questions:', error); // Log any errors that occur
