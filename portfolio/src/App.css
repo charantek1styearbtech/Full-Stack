@@ -1,5 +1,7 @@
 /* portfolio/src/App.css */
-
+html{
+  scroll-behavior: smooth;
+}
 /* General Styles */
 body {
   font-family: Arial, sans-serif;
