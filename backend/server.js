@@ -29,13 +29,11 @@ mongoose
 
 let cachedQuestions = [];
 
-const fetchQuestionsFromDB = async (req, res, next) => {
+const fetchQuestionsFromDB = async () => {
   try {
     cachedQuestions = await Data.find().sort({frequency:-1}).limit(7);
-    if (next) next();
   } catch (error) {
     console.error('Error fetching questions:', error);
-    if (next) next(error);
   }
 };
 
@@ -100,7 +98,15 @@ app.post('/addtoDB', async (req, res) => {
   }
 });
 
-app.post('/questions', fetchQuestionsFromDB, (req, res) => {
+app.post('/questions', async (req, res) => {
+    if (cachedQuestions.length === 0) {
+    try {
+      await fetchQuestionsFromDB();
+    } catch (error) {
+      console.error('Error fetching questions from DB:', error);
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+  }
   res.status(200).json(cachedQuestions);
 });
 
