@@ -1,4 +1,5 @@
 require('dotenv').config();
+const {createClient}=require('redis');
 const {computeEmbedding}= require('./sentence');
 const express = require('express');
 const morgan = require('morgan');
@@ -9,35 +10,62 @@ const cosineSimilarity = require('compute-cosine-similarity');
 const cron = require('node-cron');
 const app = express();
 
-const port=process.env.PORT || 5000;
-// Configure CORS to allow requests from your frontend
+const port = process.env.PORT || 5000;
+
 const corsOptions = {
-    origin: `${process.env.REACT_APP_FRONTEND_URL}`, // Replace with your frontend URL
-    methods: ['GET', 'POST'], // Specify the methods you want to allow
+    origin: process.env.REACT_APP_FRONTEND_URL,
+    methods: ['GET', 'POST'],
     credentials: true,
 };
 
-app.use(cors(corsOptions)); // Use the CORS middleware with the specified options
 
+const client = createClient({
+  username: 'default',
+  password: process.env.REACT_APP_REDIS_PASSWORD,
+  socket: {
+      host: process.env.REACT_APP_REDIS_HOST,
+      port: process.env.REACT_APP_REDIS_PORT,
+  },
+});
+
+app.use(cors(corsOptions));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('Error connecting to MongoDB:', err));
 
-let cachedQuestions = [];
 
-const fetchQuestionsFromDB = async () => {
+client.connect()
+  .then(() => {
+      console.log('Connected to Redis');
+  })
+  .catch((err) => {
+      console.error('Error connecting to Redis:', err);
+  });
+client.on('error', (err) => {
+  console.error('Redis Client Error:', err);
+});
+
+client.on('end', () => {
+  console.log('Redis connection closed');
+});
+
+const updateCache = async () => {
   try {
-    cachedQuestions = await Data.find().sort({frequency:-1}).limit(7);
+    const cachedQuestions = await Data.find().sort({frequency:-1}).limit(7);
+    await client.del('TopQuestions');
+    const stringified=JSON.stringify(cachedQuestions);
+    await client.set('TopQuestions',stringified);
   } catch (error) {
-    console.error('Error fetching questions:', error);
+    console.error('Error Updating Cache', error);
   }
 };
 
-cron.schedule('*/30 * * * *', () => fetchQuestionsFromDB());
+cron.schedule('*/30 * * * *', () => updateCache());
 
 app.post('/addtoDB', async (req, res) => {
   try {
@@ -98,20 +126,25 @@ app.post('/addtoDB', async (req, res) => {
   }
 });
 
-app.post('/questions', async (req, res) => {
-  // Check if cachedQuestions is empty
-  if (cachedQuestions.length === 0) {
-    try {
-      console.log('questions fetched');
-      await fetchQuestionsFromDB();
-    } catch (error) {
-      console.error('Error fetching questions from DB:', error);
-      return res.status(500).json({ error: 'Internal server error' });
+app.post('/questions',async (req, res) => {
+
+  try{
+    const cachedQuestions= await client.get('TopQuestions');
+    if(cachedQuestions)
+    {
+      const parsedQuestions=JSON.parse(cachedQuestions);
+      res.status(200).json(parsedQuestions);
+    }
+    else{
+      console.log('No Questions found');
+      res.status(404).send('No Question Found on Cache');
     }
   }
-  console.log('Not fecthed');
-  // Send the cached questions
-  res.status(200).json(cachedQuestions);
+  catch(error)
+  {
+    console.log('Error Fetching');
+    res.status(500).send('Internal Serevr Error');
+  }
 });
 
 app.listen(port, () => {
