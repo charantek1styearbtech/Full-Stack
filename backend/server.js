@@ -66,7 +66,10 @@ const updateCache = async () => {
 };
 
 cron.schedule('*/30 * * * *', () => updateCache());
-
+app.get('/',(req,res)=>{
+    res.send('hello from server side');
+}
+);
 app.post('/addtoDB', async (req, res) => {
   try {
     const { inputText, outputText } = req.body;
