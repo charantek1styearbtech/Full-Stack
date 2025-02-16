@@ -47,7 +47,7 @@ function LLMPage() {
     };
     return (
         <div className="content-section llm-interface" id="llm-interface">
-            <h1 className="llm-title">Know My Journey</h1>
+            <h1 className="llm-title">chat with my LLM to Know My Journey- Fine Tuned Gemini 1.5 flash model</h1>
             <textarea 
                 className="llm-input" 
                 value={inputText} 
