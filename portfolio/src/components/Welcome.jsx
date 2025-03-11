@@ -14,6 +14,7 @@ const Welcome = () => {
                 <a className="resume" href="/files/Resume.pdf" download>Resume</a>
                 <a className="linkedin" href="https://linkedin.com/in/reddycharantej">Linkedin</a>
                 <a className="email" href="mailto:charantej928@gmail.com">Email</a>
+                <a className='Github' href='https://github.com/charantek1styearbtech/'>Github</a>
             </div>
         </div>
     );
