@@ -16,7 +16,7 @@ if (!apiKey) {
 
 const genAI = new GoogleGenerativeAI(apiKey); // Provide fallback empty string
 const modelGen = genAI.getGenerativeModel({
-  model: "gemini-1.5-flash",
+  model: "gemini-2.5-flash",
 });
 
 const generationConfig = {
