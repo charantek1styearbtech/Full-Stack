@@ -9,6 +9,7 @@ const Header = () => {
             <nav className="nav">
                 <a href="#about-section" className="nav-item">About</a>
                 <a href="#projects-section" className="nav-item">Projects</a>
+                <a href="#opensource-section" className="nav-item">Open Source</a>
                 <a href="#llm-interface" className="nav-item">My LLM</a>
                 <a href="#contact-section" className="nav-item">Contact</a>
             </nav>
