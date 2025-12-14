@@ -22,7 +22,7 @@ const About = () => {
                     <ul className='study-li'>
                         <li>
                             <i className="fas fa-spinner fa-spin"></i>
-                            Btech 3rd Yr National Institute of Technology Warangal
+                            Btech 4th Yr National Institute of Technology Warangal
                         </li>
                         <li>
                             <i className="fas fa-check-circle"></i>
