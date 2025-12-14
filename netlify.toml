@@ -1,0 +1,15 @@
+[build]
+base = "portfolio"
+command = "npm install && npm run build"
+publish = "build"
+
+[context.production]
+command = "npm install && npm run build"
+
+[context.develop]
+command = "npm install && npm start"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
