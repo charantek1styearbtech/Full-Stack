@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 function LLMPage() {
     const [inputText, setInputText] = useState('');
     const [displayedResponse, setDisplayedResponse] = useState('');
+    const [showResponse, setShowResponse] = useState(false);
     const [loading,setLoading]=useState(false);
     const handleInputChange = (event) => {
         setInputText(event.target.value);
@@ -23,6 +24,7 @@ function LLMPage() {
 
     const handleSubmit = async () => {
         setDisplayedResponse('')
+        setShowResponse(true);
         setLoading(true);
         console.log("Submitting input to LLM:", inputText);
         const outputText = await run(inputText) || '';
@@ -58,10 +60,12 @@ function LLMPage() {
                 <button className="llm-submit llm-button" onClick={handleSubmit} disabled={loading}>{loading?'Loading..':'Submit'}</button>
                 <Link to='/questions' className="llm-top-questions llm-button">Top Asked Questions</Link>
             </div>
-            <div className="llm-response">
-                <h2>Response:</h2>
-                <p className='llm-response-text'>{displayedResponse}</p>
-            </div>
+            {showResponse && (
+                <div className="llm-response">
+                    <h2>Response:</h2>
+                    <p className='llm-response-text'>{displayedResponse || (loading ? 'Generating response...' : displayedResponse)}</p>
+                </div>
+            )}
         </div>
     );
 }
