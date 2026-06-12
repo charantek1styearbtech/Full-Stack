@@ -1,0 +1,26 @@
+{
+  "name": "charantej-portfolio",
+  "version": "1.0.0",
+  "description": "Charantej Reddy's Portfolio Website",
+  "main": "portfolio/src/index.js",
+  "private": true,
+  "scripts": {
+    "start": "cd portfolio && npm start",
+    "build": "cd portfolio && npm install && npm run build",
+    "server": "cd backend && npm install && npm start",
+    "dev": "cd portfolio && npm install && npm run dev",
+    "install-all": "npm install && cd portfolio && npm install && cd ../backend && npm install",
+    "test": "cd portfolio && npm test"
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "react"
+  ],
+  "author": "Charantej Reddy",
+  "license": "ISC",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}
